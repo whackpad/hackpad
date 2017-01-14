@@ -9,6 +9,6 @@ before_install:
   - docker build -t whackpad .
 
 script:
-  - docker run -d -p 127.0.0.1:9000:9000 -v $TRAVIS_BUILD_DIR:/etc/hackpad/src whackpad whackpad
+  - docker run -d -p 127.0.0.1:9000:9000 -v $TRAVIS_BUILD_DIR:/etc/hackpad/src whackpad
   - sleep 15
   - curl -k -b ~/cookies.txt http://127.0.0.1:9000/ep/unit-tests/run

@@ -3,7 +3,7 @@ set -e
 
 HACKPAD_SRC="/etc/hackpad/src"
 
-if [ "$1" = 'setup' ]; then
+if [ "$1" = 'whackpad' ]; then
 
 	if [ ! -d "$HACKPAD_SRC" ]; then
 		echo "The directory $HACKPAD_SRC doesn't exist."

@@ -12,14 +12,13 @@ Getting it running
 
 2. Build the image. From the root of this repo, run:
 
-		docker build -t hackpad .
+		docker build -t whackpad .
 
 3. Run the container. Docker doesn't let you automatically mount a directory on your host machine in the container, so you'll need to specify by hand.
 
 	Replace /path/to/this/repo below with the path to the current repository. Leave the other path alone.
 
-		docker run -d -p 9000:9000 -v /path/to/this/repo:/etc/hackpad/src setup
-		docker run -d -p 9000:9000 -v /path/to/this/repo:/etc/hackpad/src server
+		docker run -d -p 9000:9000 -v /path/to/this/repo:/etc/hackpad/src whackpad
 
 	This will build hackpad, run schema migrations, and then start the server. It may take a few minutes. If you want to see what's going on, do:
 
