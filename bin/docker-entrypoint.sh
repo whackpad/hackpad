@@ -40,6 +40,13 @@ if [ "$1" = 'setup' ]; then
 	echo "-->Creating database"
 	./contrib/scripts/setup-mysql-db.sh -p ""
 
+
+	echo
+	echo "Starting server. The admin account is 'admin@localhost.info'."
+	echo
+
+	./bin/run.sh
+
 elif [[  "$1" = 'server' ]]; then
 	echo
 	echo "Starting server."
@@ -47,6 +54,6 @@ elif [[  "$1" = 'server' ]]; then
 
 	./bin/run.sh
 
-else
-	exec "$@"
 fi
+
+exec "$@"
