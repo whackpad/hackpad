@@ -3,7 +3,7 @@ How to develop Hackpad under Docker
 
 If you'd like to develop Hackpad on Docker, these instructions are for you.
 
-This will let you edit this repository and see your changes reflected in the docker image. 
+This will let you edit this repository and see your changes reflected in the docker image.
 
 Getting it running
 -------------------
@@ -14,11 +14,12 @@ Getting it running
 
 		docker build -t hackpad .
 
-3. Run the container. Docker doesn't let you automatically mount a directory on your host machine in the container, so you'll need to specify by hand. 
+3. Run the container. Docker doesn't let you automatically mount a directory on your host machine in the container, so you'll need to specify by hand.
 
-	Replace /path/to/this/repo below with the path to the current repository. Leave the other path alone. 
+	Replace /path/to/this/repo below with the path to the current repository. Leave the other path alone.
 
-		docker run -d -p 9000:9000 -v /path/to/this/repo:/etc/hackpad/src hackpad
+		docker run -d -p 9000:9000 -v /path/to/this/repo:/etc/hackpad/src setup
+		docker run -d -p 9000:9000 -v /path/to/this/repo:/etc/hackpad/src server
 
 	This will build hackpad, run schema migrations, and then start the server. It may take a few minutes. If you want to see what's going on, do:
 
@@ -45,9 +46,9 @@ Getting it running
 
 5. Create a password for the admin account.
 
-	As part of the Docker setup, Hackpad is configured with 'admin@localhost.info' as a admin account, but you'll need to create a password to log in. 
+	As part of the Docker setup, Hackpad is configured with 'admin@localhost.info' as a admin account, but you'll need to create a password to log in.
 
-	To do that: 
+	To do that:
 
 	1. Open http://localhost:9000 and click Log In
 
@@ -55,7 +56,7 @@ Getting it running
 
 	3. From the command line, run:
 
-		1. Find the name of your running container by running `docker ps`. Note the name. 
+		1. Find the name of your running container by running `docker ps`. Note the name.
 
 		2. Run this query and find the token:
 

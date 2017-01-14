@@ -3,7 +3,7 @@ set -e
 
 HACKPAD_SRC="/etc/hackpad/src"
 
-if [ "$1" = 'hackpad' ]; then
+if [ "$1" = 'setup' ]; then
 
 	if [ ! -d "$HACKPAD_SRC" ]; then
 		echo "The directory $HACKPAD_SRC doesn't exist."
@@ -40,15 +40,8 @@ if [ "$1" = 'hackpad' ]; then
 	echo "-->Creating database"
 	./contrib/scripts/setup-mysql-db.sh -p ""
 
-
-	echo 
-	echo "Starting server. The admin account is 'admin@localhost.info'."
-	echo
-
-	./bin/run.sh
-
 elif [[  "$1" = 'server' ]]; then
-	echo 
+	echo
 	echo "Starting server."
 	echo
 
