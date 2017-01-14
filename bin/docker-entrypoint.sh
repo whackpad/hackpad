@@ -47,6 +47,6 @@ elif [[  "$1" = 'server' ]]; then
 
 	./bin/run.sh
 
+else
+	exec "$@"
 fi
-
-exec "$@"
