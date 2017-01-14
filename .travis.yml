@@ -7,9 +7,9 @@ before_install:
   # Use whackpad image from master as Docker is basically a stub for now.
   # - docker pull whackpad/whackpad
   - docker build -t whackpad .
-  - docker run -p 9000:9000 -v $TRAVIS_BUILD_DIR:/etc/hackpad/src whackpad setup
+  - docker run -v $TRAVIS_BUILD_DIR:/etc/hackpad/src whackpad setup
 
 script:
-  - docker run -d -p 9000:9000 -v $TRAVIS_BUILD_DIR:/etc/hackpad/src whackpad server
+  - docker run -d -p 127.0.0.1:9000:9000 -v $TRAVIS_BUILD_DIR:/etc/hackpad/src whackpad server
   - sleep 15
-  - curl -k -b ~/cookies.txt http://`hostname`:9000/ep/unit-tests/run
+  - curl -k -b ~/cookies.txt http://127.0.0.1:9000/ep/unit-tests/run
